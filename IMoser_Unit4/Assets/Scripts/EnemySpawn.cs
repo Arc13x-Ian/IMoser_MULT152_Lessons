@@ -5,13 +5,36 @@ using UnityEngine;
 public class EnemySpawn : MonoBehaviour
 {
     public GameObject enemyPrefab;
+    public GameObject itemPrefab;
+
     private float spawnRange = 8.5f;
+    private int waveNum = 1;
     // Start is called before the first frame update
     void Start()
     {
-        Vector3 genPoint = GenerateSpawnPosition();
+        SpawnWave(waveNum);
+    }
 
-        Instantiate(enemyPrefab, genPoint, enemyPrefab.transform.rotation);
+    void Update()
+    {
+        int enemyCount = FindObjectsOfType<Enemy>().Length;
+
+        if (enemyCount == 0)
+        {
+            waveNum++;
+            SpawnWave(waveNum);
+        }
+    }
+
+    void SpawnWave(int enemyNum)
+    {
+        for (int x = 0; x < enemyNum; x++)
+        {
+            Instantiate(enemyPrefab, GenerateSpawnPosition(), enemyPrefab.transform.rotation);
+        }
+
+        Instantiate(itemPrefab, GenerateSpawnPosition(), itemPrefab.transform.rotation);
+
     }
 
     Vector3 GenerateSpawnPosition()

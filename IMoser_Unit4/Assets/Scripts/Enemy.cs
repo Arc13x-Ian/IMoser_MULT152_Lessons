@@ -19,5 +19,10 @@ public class Enemy : MonoBehaviour
     {
         Vector3 seeker = (player.transform.position - transform.position).normalized;
         rbEnemy.AddForce(seeker * speed * Time.deltaTime);
+
+        if(transform.position.y < -10)
+        {
+            Destroy(gameObject);
+        }
     }
 }
