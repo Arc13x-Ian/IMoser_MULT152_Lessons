@@ -11,10 +11,17 @@ public class TargetScript : MonoBehaviour
     private const float minX = -9;
     private const float maxX = 9;
     private Rigidbody targetRB;
+
+    private GameManager gameManager;
+
+    public int pointValue;
+    public ParticleSystem explosion;
     // Start is called before the first frame update
     void Start()
     {
         targetRB = GetComponent<Rigidbody>();
+
+        gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
 
         RandomForce();
         RandomTorque();
@@ -38,6 +45,8 @@ public class TargetScript : MonoBehaviour
 
     void OnMouseDown()
     {
+        gameManager.UpdateScore(pointValue);
+        Instantiate(explosion, transform.position, explosion.transform.rotation);
         Destroy(gameObject);
     }
 
