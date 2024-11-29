@@ -45,13 +45,20 @@ public class TargetScript : MonoBehaviour
 
     void OnMouseDown()
     {
-        gameManager.UpdateScore(pointValue);
-        Instantiate(explosion, transform.position, explosion.transform.rotation);
-        Destroy(gameObject);
+        if (gameManager.gameActive == true)
+        {
+            gameManager.UpdateScore(pointValue);
+            Instantiate(explosion, transform.position, explosion.transform.rotation);
+            Destroy(gameObject);
+        }
     }
 
     void OnTriggerEnter(Collider other)
     {
         Destroy(gameObject);
+        if (!gameObject.CompareTag("Hazard"))
+        {
+            gameManager.GameOver();
+        }
     }
 }
