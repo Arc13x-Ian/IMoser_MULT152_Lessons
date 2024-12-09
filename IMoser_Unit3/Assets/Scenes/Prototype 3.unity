@@ -197,7 +197,7 @@ Light:
   m_BounceIntensity: 1
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
-  m_BoundingSphereOverride: {x: 0, y: 0, z: 0, w: 0}
+  m_BoundingSphereOverride: {x: 3e-45, y: 0, z: 0, w: -2.0000002}
   m_UseBoundingSphereOverride: 0
   m_UseViewFrustumForShadowCasterCull: 1
   m_ShadowRadius: 0
@@ -481,6 +481,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 9500000, guid: 0703a1849c2c89b4db4568688faf0c5f, type: 3}
+      propertyPath: m_ApplyRootMotion
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0703a1849c2c89b4db4568688faf0c5f, type: 3}
 --- !u!850595691 &1064540555
@@ -563,7 +567,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gravityModifier: 1
-  jumpForce: 1
+  jumpForce: 0.35
   gameOver: 0
 --- !u!54 &1089778500
 Rigidbody:
@@ -743,6 +747,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 618817999277189497, guid: d45d5241a77320241a4522119fdbc0ac, type: 3}
+      propertyPath: m_Lightmapping
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 3298174719259473845, guid: d45d5241a77320241a4522119fdbc0ac, type: 3}
       propertyPath: m_RootOrder
       value: 5
@@ -790,6 +798,54 @@ PrefabInstance:
     - target: {fileID: 3298174719259739029, guid: d45d5241a77320241a4522119fdbc0ac, type: 3}
       propertyPath: m_Name
       value: Obstacle
+      objectReference: {fileID: 0}
+    - target: {fileID: 6615404626412633892, guid: d45d5241a77320241a4522119fdbc0ac, type: 3}
+      propertyPath: m_BoundingSphereOverride.w
+      value: 1e-45
+      objectReference: {fileID: 0}
+    - target: {fileID: 6615404626412633892, guid: d45d5241a77320241a4522119fdbc0ac, type: 3}
+      propertyPath: m_BoundingSphereOverride.x
+      value: NaN
+      objectReference: {fileID: 0}
+    - target: {fileID: 6615404626412633892, guid: d45d5241a77320241a4522119fdbc0ac, type: 3}
+      propertyPath: m_BoundingSphereOverride.y
+      value: NaN
+      objectReference: {fileID: 0}
+    - target: {fileID: 6615404626412633892, guid: d45d5241a77320241a4522119fdbc0ac, type: 3}
+      propertyPath: m_BoundingSphereOverride.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8339928924214378109, guid: d45d5241a77320241a4522119fdbc0ac, type: 3}
+      propertyPath: m_BoundingSphereOverride.w
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8339928924214378109, guid: d45d5241a77320241a4522119fdbc0ac, type: 3}
+      propertyPath: m_BoundingSphereOverride.x
+      value: 6.61e-43
+      objectReference: {fileID: 0}
+    - target: {fileID: 8339928924214378109, guid: d45d5241a77320241a4522119fdbc0ac, type: 3}
+      propertyPath: m_BoundingSphereOverride.y
+      value: NaN
+      objectReference: {fileID: 0}
+    - target: {fileID: 8339928924214378109, guid: d45d5241a77320241a4522119fdbc0ac, type: 3}
+      propertyPath: m_BoundingSphereOverride.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9070052575433790422, guid: d45d5241a77320241a4522119fdbc0ac, type: 3}
+      propertyPath: m_BoundingSphereOverride.w
+      value: -2.0432522e-22
+      objectReference: {fileID: 0}
+    - target: {fileID: 9070052575433790422, guid: d45d5241a77320241a4522119fdbc0ac, type: 3}
+      propertyPath: m_BoundingSphereOverride.x
+      value: 1.02e-43
+      objectReference: {fileID: 0}
+    - target: {fileID: 9070052575433790422, guid: d45d5241a77320241a4522119fdbc0ac, type: 3}
+      propertyPath: m_BoundingSphereOverride.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9070052575433790422, guid: d45d5241a77320241a4522119fdbc0ac, type: 3}
+      propertyPath: m_BoundingSphereOverride.z
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d45d5241a77320241a4522119fdbc0ac, type: 3}
