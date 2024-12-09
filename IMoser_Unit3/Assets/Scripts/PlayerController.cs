@@ -12,11 +12,18 @@ public class PlayerController : MonoBehaviour
     public bool gameOver = false;
 
     private Animator animPlayer;
+    public ParticleSystem particleBoom;
+    public ParticleSystem particleDirt;
+
+    public AudioClip jumpSound;
+    public AudioClip deathSound;
+    public AudioSource asPlayer;
     // Start is called before the first frame update
     void Start()
     {
         rbPlayer = GetComponent<Rigidbody>();
         animPlayer = GetComponent<Animator>();
+        asPlayer = GetComponent<AudioSource>();
 
         Physics.gravity *= gravityModifier;
         onGround = true;
@@ -31,6 +38,8 @@ public class PlayerController : MonoBehaviour
             rbPlayer.AddForce(Vector3.up * 10, ForceMode.Impulse);
             onGround = false;
             animPlayer.SetTrigger("Jump_trig");
+            particleDirt.Stop();
+            asPlayer.PlayOneShot(jumpSound);
         }
 
         //also setting a falling animation cuz I can
@@ -49,6 +58,7 @@ public class PlayerController : MonoBehaviour
         if(collision.gameObject.CompareTag("Ground"))
         {
             onGround = true;
+            particleDirt.Play();
         }
         else if (collision.gameObject.CompareTag("Enemy"))
         {
@@ -59,6 +69,9 @@ public class PlayerController : MonoBehaviour
             int randomDeath = Random.Range(1, 2);
             animPlayer.SetInteger("DeathType_int", randomDeath);
             animPlayer.SetBool("Death_b", true);
+            particleBoom.Play();
+            particleDirt.Stop();
+            asPlayer.PlayOneShot(deathSound);
         }
 
     }
